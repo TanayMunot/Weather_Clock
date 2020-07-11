@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Satisfy&family=Yellowtail&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+     font-family: 'Cinzel', serif;;
+     background-image: url('fire-art.jpg');
+     background-size: cover;
+     background-repeat: no-repeat;
+}
+
+.app-wrap{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+}
+.clock{
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white url('clock.jpg');
+    background-size: cover;
+    margin: 10px auto;
+    margin-top: 20px;
+    border-radius: 50%;
+    border: 20px solid white;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.1),0 20px 20px rgba(0,0,0,0.2),0 0 0 4px rgba(255,255,255,1);
+}
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #848484;
+    border:2px solid white;
+    z-index: 100000;
+    border-radius: 50%;
+} 
+.hour,.min,.sec{
+    position: absolute;
+
+}
+.hour,.hr{
+    width: 115px;
+    height: 90px;
+}
+.min,.mn{
+    width: 135px;
+    height: 135px;
+}
+.sec,.sc{
+    width: 165px;
+    height: 165px;
+}
+.hr,.mn,.sc{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+}
+.hr::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 40px;
+    background: #848484;
+    border-radius: 2px 2px 0 0;
+    z-index: 10;
+}
+.mn::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 80px;
+    background: #d6d6d6;
+    border-radius: 2px 2px 0 0;
+    z-index: 11;
+}
+.sc::before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: red;
+    border-radius: 2px 2px 0 0;
+    z-index: 12;
+}
+p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1%;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px 20px;
+}
+header input{
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    border-bottom: 2px solid black;
+    background-color: rgba(255,255,255,0.5);
+    color: black;
+    font-weight: 300;
+    font-size: 25px;
+    transition: 0.5s ease-out;
+    outline: none;
+}
+main{
+    padding: 25px 25px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.location .city {
+    color: white;
+    font-size: 45px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.location .date{
+    color: white;
+    font-size: 18px;
+}
+.current .temperature{
+    color: white;
+    font-size: 102px;
+    font-weight: 900;
+    text-shadow: 2px 5px rgba(0,0,0,0.8);
+}
+.current .weather{
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    font-style: italic;
+    margin: 20px;
+}
+.current .range{
+    color: white;
+     font-size: 24px;
+     font-weight: 500;
+     text-shadow: 2px 5px rgba(0,0,0,0.8);
+
+}
