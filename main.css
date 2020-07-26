@@ -54,8 +54,8 @@ body{
     height: 135px;
 }
 .sec,.sc{
-    width: 165px;
-    height: 165px;
+    width: 165px;  
+     height: 165px; 
 }
 .hr,.mn,.sc{
     display: flex;

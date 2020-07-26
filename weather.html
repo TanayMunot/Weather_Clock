@@ -39,93 +39,93 @@
         </main>
     </div>
     <script >
-       const sec = document.getElementById('sc');
-       const min =document.getElementById('mn');
-       const hour =document.getElementById('hr');
-       setInterval(updateClock,1000);
-       function updateClock(){
-           let date = new Date();
-           let s = date.getSeconds();
-           let m = date.getMinutes();
-           let h = date.getHours()%12;
-          /* console.log(m);
-           console.log(h);
-           console.log(s);*/
-          
-           var hrdeg = h*30 ;
-           var mndeg = m*6 ;
-           var secdeg = s*6 ;
-
-           sec.style.transform = "rotate(" + (secdeg) + "deg)";
-           min.style.transform = "rotate(" + (mndeg) + "deg)";
-           hour.style.transform = "rotate(" + (hrdeg) + "deg)";
-
-       }
-       //setTimeout(updateClock,1000);
-       const api ={
-    key: "5e6a8bb80c1a09f12b1e88034b278e09",
-    base: "https://api.operweathermap.org/data/2.5"
-}
-const searchbox =document.querySelector(".searchbox");
-searchbox.addEventListener('keypress',setQuery);
-
-function setQuery(evt){
-    if(evt.keyCode==13){
-        getresults(searchbox.value);
-        console.log(searchbox.value);
-    }
-}
-
-function getresults(result){
-fetch('https://api.openweathermap.org/data/2.5/weather?q='+result+'&appid=5e6a8bb80c1a09f12b1e88034b278e09')
-.then(weather => {
-    return weather.json();
-}).then(displayresults);
-
-}
-function displayresults(weather){
-    
-    var city=document.querySelector('.location .city');
-    city.innerHTML= weather.name +' , '+weather.sys.country;
-    let d = new Date();
-    
-    
-    var m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    var a = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-    var day = a[d.getDay()];
-    var da = d.getDate();
-    var month = m[d.getMonth()];
-    var year = d.getFullYear();
-
-    var c = day+' '+da+' '+month+' '+year ;
-    console.log(c);
-    document.getElementById('date').innerHTML= c ;
-     let tem= document.querySelector('.current .temperature');
-     var t = Math.round(weather.main.temp)-273;
-     t = t + " ºc";
-     console.log(t);
-     document.getElementById("temperature").innerHTML=t;
-     var info = weather.weather[0].main;
-     console.log(info);
-
-     document.getElementById('weather').innerHTML = info;
-     var min = Math.floor(weather.main.temp_min)-273 ;
+        const sec = document.getElementById('sc');
+        const min =document.getElementById('mn');
+        const hour =document.getElementById('hr');
+        setInterval(updateClock,1000);
+        function updateClock(){
+            let date = new Date();
+            let s = date.getSeconds();
+            let m = date.getMinutes();
+            let h = date.getHours()%12;
+           /* console.log(m);
+            console.log(h);
+            console.log(s);*/
+           
+            var hrdeg = h*30 ;
+            var mndeg = m*6 ;
+            var secdeg = s*6 ;
+ 
+            sec.style.transform = "rotate(" + (secdeg) + "deg)";
+            min.style.transform = "rotate(" + (mndeg) + "deg)";
+            hour.style.transform = "rotate(" + (hrdeg) + "deg)";
+ 
+        }
+        //setTimeout(updateClock,1000);
+        const api ={
+     key: "5e6a8bb80c1a09f12b1e88034b278e09",
+     base: "https://api.operweathermap.org/data/2.5"
+ }
+ const searchbox =document.querySelector(".searchbox");
+ searchbox.addEventListener('keypress',setQuery);
+ 
+ function setQuery(evt){
+     if(evt.keyCode==13){
+         getresults(searchbox.value);
+         console.log(searchbox.value);
+     }
+ }
+ 
+ function getresults(result){
+ fetch('https://api.openweathermap.org/data/2.5/weather?q='+result+'&appid=5e6a8bb80c1a09f12b1e88034b278e09')
+ .then(weather => {
+     return weather.json();
+ }).then(displayresults);
+ 
+ }
+ function displayresults(weather){
      
-     min = min + " ºc";
-     var max = Math.ceil(weather.main.temp_max)-273;
+     var city=document.querySelector('.location .city');
+     city.innerHTML= weather.name +' , '+weather.sys.country;
+     let d = new Date();
      
-     console.log(max);
-     max= max + " ºc";
      
-     console.log(min);
-     document.getElementById('range').innerHTML = min+' / '+max;
-
-
-    
-}
-
-
-    </script>
+     var m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+     var a = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+     var day = a[d.getDay()];
+     var da = d.getDate();
+     var month = m[d.getMonth()];
+     var year = d.getFullYear();
+ 
+     var c = day+' '+da+' '+month+' '+year ;
+     console.log(c);
+     document.getElementById('date').innerHTML= c ;
+      let tem= document.querySelector('.current .temperature');
+      var t = Math.round(weather.main.temp)-273;
+      t = t + " ºc";
+      console.log(t);
+      document.getElementById("temperature").innerHTML=t;
+      var info = weather.weather[0].main;
+      console.log(info);
+ 
+      document.getElementById('weather').innerHTML = info;
+      var min = Math.floor(weather.main.temp_min)-273 ;
+      
+      min = min + " ºc";
+      var max = Math.ceil(weather.main.temp_max)-273;
+      
+      console.log(max);
+      max= max + " ºc";
+      
+      console.log(min);
+      document.getElementById('range').innerHTML = min+' / '+max;
+ 
+ 
+     
+ }
+ 
+ 
+     </script>
 </body>
 
 </html>
